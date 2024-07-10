@@ -14,10 +14,6 @@ body {
 	padding: 0;
 	font-family: 'Ubuntu', sans-serif !important;
 	font-weight: 300 !important;
-	
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 }
 main {
 	width: 100%;
@@ -28,7 +24,7 @@ main {
 }
 section {
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	overflow: hidden;
 	display: flex;
 	justify-content: center;
@@ -48,7 +44,7 @@ section video{
 section .container-fluid{
 	position: relative;
 	z-index: 1;
-	max-width: 1000px;
+	max-width: 100%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -56,67 +52,56 @@ h1 {
     font-size: 2em;
     text-shadow: 1px 1px 1px #ffffff;
 }
+a {
+    text-decoration: none !important;
+}
 </style>
 </head>
-<body class="bg-dark">
-<main class="m-auto">
+<body class="bg-light">
+<main class="m-auto text-light">
 <section class="container">
     
-<!---Bakckground Home--->
+<!---Bakckground--->
 
 <video autoplay muted loop>
     <source src="dlajah.mp4" type="video/mp4">
 </video>
 <div class="container-fluid">
+
+<img src="dlajah.png" width="80"/>
+<h2>
+    <i>Dlajah Karya Kreasi</i>
+</h2>
+
+<!---F o r m--->
+
+<form class="btn border-light text-light text-start" name="sheet">
+    <p>Pembelian</p>
+    <input class="container btn btn-outline-light text-start mb-1" type="text" name="Purchase" placeholder="Nama Barang"/>
+    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="Amount" placeholder="Banyaknya"/>
+    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="Unit-price" placeholder="Harga Satuan"/>
+    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="OUTPUT" placeholder="Total Harga"/>
+    <p>Keuangan</p>
+    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="OUTPUT" placeholder="Uang Keluar"/>
+    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="INPUT" placeholder="Uang Masuk" />
+    <textarea class="container btn btn-outline-light text-start mb-1" type="text" rows="2" name="Descriptions" placeholder="Keterangan"></textarea>
     
-<div id="home" class="content">
-    
-    <img src="dlajah.png" class="img-fluid"/>
-    
-    <h1 class="mb-4"><b class="text-success">Dlajah</b> <b class="text-dark">Karya Kreasi</b></h1>
-    
-    <input class="container btn btn-secondary mb-2" type="submit" value="Input Data Belanja" onclick="
-    document.getElementById('home').style.display=('none');
-    document.getElementById('belanja').style.display=('block');"/>
-    
-    <input class="container btn btn-secondary mb-2" type="submit" value="Input Data Keuangan"onclick="
-    document.getElementById('home').style.display=('none');
-    document.getElementById('keuangan').style.display=('block');"/>
-    
+    <button id="a" class="container btn btn-light" type="submit" onclick="document.getElementById('a').style.display=('none');document.getElementById('b').style.display=('block');">Input Data</button>
+<a href="" id="b" style="display:none" class="w-100 text-center mb-2">
+    <span class="spinner-border text-light mb-2">
+    </span>
+    <span class="container btn btn-light" type="button">
+            Tambah Data
+    </span>
+</a>
+</form>
+
 </div>
-
-<!---Data Belanja--->
-
-    <form id="belanja" style="display:none" class="container text-light" name="to_sheet">
-        <img src="dlajah.png" class="spinner-grow bg-light mb-2"/>
-        <h2>Data Belanja</h2>
-        <input class="form-control mb-2" type="text" name="Product" placeholder="Nama barang" required/>
-        <input class="form-control mb-2" type="number" name="Amount" placeholder="Banyaknya" required/>
-        <input class="form-control mb-2" type="number" name="One_price" placeholder="Harga satuan" required/>
-        <input class="form-control mb-2" type="number" name="All_prices" placeholder="Total harga" required/>
-        <input class="btn btn-success mb-5 w-75" type="submit" value="INPUT"/>
-        <a href="" class="btn btn-dark mb-5 w-100">Kembali</a>
-    </form>
-    
-<!---Data Keuangan--->
-
-    <form id="keuangan" style="display:none" class="container text-light" name="to_sheet">
-        <img src="dlajah.png" class="spinner-grow bg-light mb-2"/>
-        <h2>Data Keuangan</h2>
-        <input class="form-control mb-2" type="number" name="Input" placeholder="Uang masuk"/>
-        <input class="form-control mb-2" type="number" name="Output" placeholder="Uang keluar"/>
-        <input class="form-control mb-2" type="text" name="Descriptions" placeholder="Keterangan" required/>
-        <input class="btn btn-success mb-5 w-75" type="submit" value="INPUT"/>
-        <a href="" class="btn btn-dark mb-5 w-100">Kembali</a>
-    </form>    
-    
-</div>
-	
 </section>
 </main>
 <script>
-  const scriptURL = 'url'
-  const form = document.forms['to_sheet']
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxGP6XZBm7mM2u00UoXfykFJQLHJx_29XG50bhN_fr3SuNkt1TQzMm2FQmy_yNFte-wHQ/exec'
+  const form = document.forms['sheet']
 
   form.addEventListener('submit', e => {
     e.preventDefault()
