@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Input Data</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
 @media (min-width: 768px) {main {max-width: 420px;}}
@@ -24,7 +23,7 @@ main {
 }
 section {
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	overflow: hidden;
 	display: flex;
 	justify-content: center;
@@ -48,73 +47,124 @@ section .container-fluid{
 	margin: 0 auto;
 	text-align: center;
 }
-h1 {
-    font-size: 2em;
-    text-shadow: 1px 1px 1px #ffffff;
-}
 a {
-    text-decoration: none !important;
+    text-decoration: none!important;
+}
+img {
+    width: 120px;
+    height: 50px;
 }
 </style>
+<title>Form To Google Sheets </title>
 </head>
 <body class="bg-light">
-<main class="m-auto text-light">
+<main class="m-auto">
 <section class="container">
     
-<!---Bakckground--->
-
 <video autoplay muted loop>
     <source src="dlajah.mp4" type="video/mp4">
 </video>
+
 <div class="container-fluid">
 
-<img src="dlajah.png" width="80"/>
-<h2>
-    <i>Dlajah Karya Kreasi</i>
-</h2>
-
-<!---F o r m--->
-
-<form class="btn border-light text-light text-start" name="sheet">
-    <p>Pembelian</p>
-    <input class="container btn btn-outline-light text-start mb-1" type="text" name="Purchase" placeholder="Nama Barang"/>
-    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="Amount" placeholder="Banyaknya"/>
-    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="Unit-price" placeholder="Harga Satuan"/>
-    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="OUTPUT" placeholder="Total Harga"/>
-    <p>Keuangan</p>
-    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="OUTPUT" placeholder="Uang Keluar"/>
-    <input class="container btn btn-outline-light text-start mb-1 w-50" type="number" name="INPUT" placeholder="Uang Masuk" />
-    <textarea class="container btn btn-outline-light text-start mb-1" type="text" rows="2" name="Descriptions" placeholder="Keterangan"></textarea>
-    
-    <button id="a" class="container btn btn-light" type="submit" onclick="document.getElementById('a').style.display=('none');document.getElementById('b').style.display=('block');">Input Data</button>
-<a href="" id="b" style="display:none" class="w-100 text-center mb-2">
-    <span class="spinner-border text-light mb-2">
-    </span>
-    <span class="container btn btn-light" type="button">
-            Tambah Data
-    </span>
-</a>
+<form class="container btn-group-vertical" name="sheet">
+    <div class="btn btn-success text-light p-2">
+        <img src="dlajah.png"/>
+        <h2><b>Dlajah Karya Kreasi</b></h2>
+    </div>
+   
+   <div class="btn btn-light text-start p-2">
+       <p class="text-center">
+           <b>Data Keuangan</b></p>
+       <div class="row mb-2">
+           <div class="col-6">
+               <label for="">Uang Pengeluaran</label>
+           </div>
+           <div class="col-6">
+               <input class="form-control" name="Uang-keluar" type="number"/>
+           </div>
+       </div>
+       <div class="row mb-2">
+           <div class="col-6">
+               <label for="">Uang Pemasukan</label>   
+           </div>
+           <div class="col-6">
+               <input class="form-control" type="number" name="Uang-masuk"/>
+           </div>
+       </div>
+       <label for="">Keterangan</label>
+       <input class="form-control" name="Keterangan" type="text"required/>
+       
+        <input class="btn btn-success mt-2" type="submit" value="Simpan"/>
+    </div>
+    <div>
+        <a href="https://docs.google.com/spreadsheets/d/1JzP_bYTJ1dd76SUslL1z1FxQYfJJmFYm8bSCLHZKfDw/edit?usp=drivesdk">
+            <input class="container btn btn-success mt-5" type="button" value="Lihat Data di Excel"/>
+        </a>
+    </div>
 </form>
-	
-<!---Database--->
-	
-<a href="https://docs.google.com/spreadsheets/d/1JzP_bYTJ1dd76SUslL1z1FxQYfJJmFYm8bSCLHZKfDw/edit?usp=drivesdk">
-	<input class="btn text-light" type="button" value="Buka Database Excel"/>
-</a>
-
+<div class="container">
+    <div class="btn btn-send text-light d-none">
+        <span class="spinner-border">
+        </span>
+        <h2>Menyimpan</h2>
+    </div>
+    <div class="btn btn-save btn-light d-none">
+        <div class="text-start">
+            <h2>Success ! ...</h2>
+            <p>Data Anda berhasil disimpan</p>
+            <a href="">
+                <input class="btn btn-success" type="button" value="Kembali"/>
+            </a>
+        </div>
+    </div>
+    <div class="btn btn-error btn-danger d-none">
+        <div class="text-start">
+            <h2>Error ! ...</h2>
+            <p>Data Anda gagal disimpan</p>
+            <a href="">
+                <input class="btn btn-success" type="button" value="Kembali"/>
+            </a>
+        </div>
+    </div>
 </div>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxGP6XZBm7mM2u00UoXfykFJQLHJx_29XG50bhN_fr3SuNkt1TQzMm2FQmy_yNFte-wHQ/exec'
+    const form = document.forms['sheet']
+    const btnSend = document.querySelector('.btn-send')
+    const btnSave = document.querySelector('.btn-save')
+    const btnError = document.querySelector('.btn-error')
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      showLoadingIndicator()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => showSuccessMessage(response))
+        .catch(error => showErrorMessage(error))
+    })
+
+    function showLoadingIndicator () {
+      form.classList.add('d-none')
+      btnSend.classList.remove('d-none')
+    }
+
+    function showSuccessMessage (response) {
+      console.log('Success!', response)
+      setTimeout(() => {
+        btnSave.classList.remove('d-none')
+        btnSend.classList.add('d-none')
+      }, 1000)
+    }
+
+    function showErrorMessage (error) {
+      console.error('Error!', error.message)
+      setTimeout(() => {
+        btnError.classList.remove('d-none')
+        btnSend.classList.add('d-none')
+      }, 100)
+    }
+  </script>
 </section>
 </main>
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxGP6XZBm7mM2u00UoXfykFJQLHJx_29XG50bhN_fr3SuNkt1TQzMm2FQmy_yNFte-wHQ/exec'
-  const form = document.forms['sheet']
-
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
-</script>
 </body>
 </html>
